@@ -40,7 +40,7 @@ class ApplicationController < Sinatra::Base
       if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id 
       else
-        params[:username] == "" || params[:password] == ""
+        @user= params[:username] == "" || params[:password] == ""
         redirect to '/failure'
     end
   end
